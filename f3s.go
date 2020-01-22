@@ -1,4 +1,4 @@
-package fs
+package f3s
 
 import (
 	"fmt"
