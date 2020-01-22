@@ -23,7 +23,7 @@ import (
 
 func main() {
     // Create new flags
-	flags := fs.SetNewFlags()
+	flags := f3s.SetNewFlags()
 
 	// 1st param is flag and 2nd param is description
 	flags.SetFlag("output", "This flag will write ascii output to file")
