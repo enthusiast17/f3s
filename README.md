@@ -5,7 +5,7 @@ Parses flags regardless of consistent from arguments.
 ### Installation
 
 ```
-go get github.com/enthusiast17/fs
+go get github.com/enthusiast17/f3s
 ```
 
 ### Usage
@@ -18,7 +18,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/enthusiast17/fs"
+	"github.com/enthusiast17/f3s"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func main() {
 	// Bool param is displayHelper if true displays --help/-h command when there is no argument, else displays nothing
 	flags.Parse(false)
 
-    // HasContent returns a bool, if the given tag has a content returns 'true', else returns 'false'.
+        // HasContent returns a bool, if the given tag has a content returns 'true', else returns 'false'.
 	if fs.HasContent(flags, "output") {
 		output := fs.Content(flags, "output") // fs.Content returns a content from parsed flags
 		fmt.Println(output)
