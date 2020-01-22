@@ -1,6 +1,6 @@
 # f3s
 
-Parses flags regardless of consistent from arguments.
+Parse flags regardless of consistent from arguments.
 
 ### Installation
 
@@ -22,7 +22,7 @@ import (
 )
 
 func main() {
-    // Create new flags
+        // Create new flags
 	flags := f3s.SetNewFlags()
 
 	// 1st param is flag and 2nd param is description
