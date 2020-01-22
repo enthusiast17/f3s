@@ -36,14 +36,14 @@ func main() {
 	flags.Parse(false)
 
         // HasContent returns a bool, if the given tag has a content returns 'true', else returns 'false'.
-	if fs.HasContent(flags, "output") {
-		output := fs.Content(flags, "output") // fs.Content returns a content from parsed flags
+	if f3s.HasContent(flags, "output") {
+		output := f3s.Content(flags, "output") // fs.Content returns a content from parsed flags
 		fmt.Println(output)
 	}
 
 	// HasContent returns a bool, if the given tag has a content returns 'true', else returns 'false'.
-	if fs.HasContent(flags, "reverse") {
-		reverse := fs.Content(flags, "reverse") // fs.Content returns a content from parsed flags
+	if f3s.HasContent(flags, "reverse") {
+		reverse := f3s.Content(flags, "reverse") // fs.Content returns a content from parsed flags
 		fmt.Println(reverse)
 	}
 }
