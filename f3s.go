@@ -112,10 +112,10 @@ func Content(flags *Flags, tag string) string {
 func HasContent(flags *Flags, tag string) bool {
 	for _, flag := range flags.flags {
 		if flag != nil && flag.tag == tag {
-			if flag.content == "" || len(flag.content) == 0 {
-				return false
+			if flag.content != "" || len(flag.content) != 0 {
+				return true
 			}
 		}
 	}
-	return true
+	return false
 }
