@@ -87,3 +87,21 @@ func GetDescriptions(flags *Flags) []string {
 	}
 	return dess
 }
+
+// GetHelper returns a string with tags and descriptions.
+func GetHelper(flags *Flags) string {
+	var helper string
+	if flags != nil {
+		var iter int
+		for _, flag := range flags.flags {
+			if flag != nil {
+				helper += ("--" + flag.tag + "\n\t" + flag.des)
+				if iter != len(flags.flags)-1 {
+					helper += "\n"
+				}
+				iter++
+			}
+		}
+	}
+	return helper
+}
