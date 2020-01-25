@@ -56,7 +56,7 @@ func GetContents(flags *Flags) []string {
 	var contents []string
 	if flags != nil {
 		for _, flag := range flags.flags {
-			if flag != nil {
+			if flag != nil && flag.des != "" {
 				contents = append(contents, flag.content)
 			}
 		}
@@ -68,8 +68,10 @@ func GetContents(flags *Flags) []string {
 func GetTags(flags *Flags) []string {
 	var tags []string
 	if flags != nil {
-		for tag := range flags.flags {
-			tags = append(tags, tag)
+		for _, flag := range flags.flags {
+			if flag != nil && flag.des != "" {
+				tags = append(tags, flag.tag)
+			}
 		}
 	}
 	return tags
@@ -80,7 +82,7 @@ func GetDescriptions(flags *Flags) []string {
 	var dess []string
 	if flags != nil {
 		for _, flag := range flags.flags {
-			if flag != nil {
+			if flag != nil && flag.des != "" {
 				dess = append(dess, flag.des)
 			}
 		}
@@ -93,13 +95,16 @@ func GetHelper(flags *Flags) string {
 	var helper string
 	if flags != nil {
 		var iter int
+		lenFlags := len(flags.flags)
 		for _, flag := range flags.flags {
-			if flag != nil {
+			if flag != nil && flag.des != "" {
 				helper += ("--" + flag.tag + "\n\t" + flag.des)
-				if iter != len(flags.flags)-1 {
+				if iter != lenFlags-1 {
 					helper += "\n"
 				}
 				iter++
+			} else {
+				lenFlags--
 			}
 		}
 	}
