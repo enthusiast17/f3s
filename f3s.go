@@ -40,15 +40,13 @@ func SetNewFlags(args []string) *Flags {
 
 // SetFlag returns a Flag's content value.
 func (flags *Flags) SetFlag(tag string, des string) string {
+	flag := flags.flags[tag]
 	var content string
-	if tag != "" {
-		flag := flags.flags[tag]
-		if flag != nil {
-			flag.des = des
-			content = flag.content
-		} else {
-			flags.flags[tag] = &Flag{tag: tag, des: des}
-		}
+	if flag != nil {
+		flag.des = des
+		content = flag.content
+	} else {
+		flags.flags[tag] = &Flag{tag: tag, des: des}
 	}
 	return content
 }
