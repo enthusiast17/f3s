@@ -43,6 +43,9 @@ func (flags *Flags) SetFlag(tag string, des string) string {
 	var content string
 	if tag != "" {
 		flag := flags.flags[tag]
+		if des == "" {
+			des = "No description"
+		}
 		if flag != nil {
 			flag.des = des
 			content = flag.content
@@ -90,6 +93,19 @@ func GetDescriptions(flags *Flags) []string {
 		}
 	}
 	return dess
+}
+
+// GetMap returns a map with tag as key and content as value.
+func GetMap(flags *Flags) map[string]string {
+	m := make(map[string]string)
+	if flags != nil {
+		for _, flag := range flags.flags {
+			if flag != nil && flag.des != "" {
+				m[flag.tag] = flag.content
+			}
+		}
+	}
+	return m
 }
 
 // GetHelper returns a string with tags and descriptions.
