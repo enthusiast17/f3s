@@ -33,3 +33,10 @@ func main() {
 }
 
 ```
+
+### Terminal
+
+```Bash
+user@ubuntu:~/example$ go run main.go "hello" there --reverse="example1" --output=example2
+example1 example2
+```
